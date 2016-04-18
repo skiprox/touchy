@@ -1,0 +1,40 @@
+{
+  "name": "touch-events",
+  "version": "0.1.0",
+  "description": "",
+  "main": "touch-events.js",
+  "directories": {
+    "examples": "examples"
+  },
+  "dependencies": {
+    "defaults": "^1.0.3",
+    "events": "^1.1.0",
+    "util": "^0.10.3"
+  },
+  "devDependencies": {
+    "grunt": "^0.4.5",
+    "grunt-browserify": "^3.2.1",
+    "jshint": "~2.5.11",
+    "load-grunt-tasks": "^1.0.0"
+  },
+  "scripts": {
+    "start": "node touch-events",
+    "test": "jshint --verbose touch-events.js examples/; jshint --config=.jshintpkg package.json"
+  },
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/skiprox/touch-events"
+  },
+  "homepage": "https://github.com/skiprox/touch-events",
+  "bugs": {
+    "url": "https://github.com/skiprox/touch-events/issues"
+  },
+  "author": "skiprox <seanmichaelscanlan@gmail.com>",
+  "publishConfig": {
+    "registry": "http://npm.kettlenyc.com:4873/"
+  },
+  "license": "MIT",
+  "engine": {
+    "node": ">=0.6"
+  }
+}
