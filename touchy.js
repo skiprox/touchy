@@ -23,8 +23,7 @@ function Touchy(containerEl, obj) {
 	this.settings = {};
 	this.elems = {};
 	this.props = {};
-	this.settings = defaults(obj, defaultValues);
-	this.elems.container = document.querySelector(containerEl);
+	this._establishProperties(containerEl, obj);
 
 	// Bindings
 	this._onTouchMove = this._onTouchMove.bind(this);
@@ -38,6 +37,20 @@ inherits(Touchy, EventEmitter);
 
 // Store the prototype in a variable for ease and fun!
 var proto = Touchy.prototype;
+
+/**
+ * Establish the object properties
+ */
+proto._establishProperties = function(containerEl, obj) {
+	this.settings = defaults(obj, defaultValues);
+	this.elems.container = document.querySelector(containerEl);
+	// The list of properties of the touch events we want to manually calculate and track
+	this.props.deltaStart = null;
+	this.props.deltaCurrent = null;
+	this.props.deltaEnd = null;
+	this.props.deltaX = null;
+	this.props.deltaY = null;
+};
 
 /**
  * Add Event Listeners
