@@ -10,7 +10,10 @@ var Main = (function() {
 		init : function() {
 			var touchy = new Touchy('.container');
 			touchy.on('pan', function(e) {
-				console.log(e);
+				console.log('pan', e);
+			});
+			touchy.on('panend', function(e) {
+				console.log('panend', e);
 			});
 			return this;
 		}
@@ -3037,7 +3040,6 @@ proto._establishProperties = function(containerEl, obj) {
 	this.settings = defaults(obj, defaultValues);
 	this.elems.container = document.querySelector(containerEl);
 	// The list of properties of the touch events we want to manually calculate and track
-	this.props.type = null;
 	this.props.deltaX = null;
 	this.props.deltaY = null;
 	this.props.deltaXStart = null;
@@ -3078,6 +3080,7 @@ proto._onTouchStart = function(e) {
 
 // Touchend
 proto._onTouchEnd = function(e) {
+	this.updateEventValues(e);
 	this.emit('panend', e);
 };
 

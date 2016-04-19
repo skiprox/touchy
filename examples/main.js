@@ -9,7 +9,10 @@ var Main = (function() {
 		init : function() {
 			var touchy = new Touchy('.container');
 			touchy.on('pan', function(e) {
-				console.log(e);
+				console.log('pan', e);
+			});
+			touchy.on('panend', function(e) {
+				console.log('panend', e);
 			});
 			return this;
 		}
